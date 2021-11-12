@@ -1,0 +1,8 @@
+<div class="container">
+    <p>Hello from: <strong>Slave One Component</strong></p>
+    <p><strong>Count: {{count}}</strong></p>
+    <br>
+    <button (click)="add()">Add</button>
+    <button (click)="subtract()">Subtract</button>
+    <button (click)="resetCount()" [disabled]="disableReset$ | async">Reset</button>
+</div>

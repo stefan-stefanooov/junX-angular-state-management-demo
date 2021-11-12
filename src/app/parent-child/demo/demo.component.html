@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-title>
+        <h3>Demo Parent-Child!</h3>
+    </mat-card-title>
+    <mat-card-subtitle>
+        <mat-grid-list cols="2" rowHeight="1:1" gutterSize="10">
+            <mat-grid-tile>
+                <app-slave-one
+                    [count]="count"
+                    (countReset)="countReset()"
+                ></app-slave-one>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <app-slave-two
+                    [count]="count"
+                    (countReset)="countReset()"
+                ></app-slave-two>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-subtitle>
+    <mat-card-actions
+        class="card-container"
+    >
+        <button
+            class="card"
+            (click)="addToCount()"
+        >Count ++</button>
+    </mat-card-actions>
+  </mat-card>

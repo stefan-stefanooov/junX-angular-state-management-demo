@@ -1,0 +1,7 @@
+<p><strong>Count: {{count}}</strong></p>
+<button 
+    (click)="resetCount()"
+    [disabled]="!!!count"
+>
+    Reset
+</button>
