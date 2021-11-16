@@ -25,15 +25,15 @@ export class SlaveFiveComponent {
   constructor(private countService: CountService) { }
 
   resetCount() {
-    this.countService.countReset();
+    this.countService.countReset(this.constructor.name);
   }
 
   subtract() {
-    this.countService.subtractFromCount(AMMOUNT_TO_ADD);
+    this.countService.subtractFromCount(this.constructor.name, AMMOUNT_TO_ADD);
   }
 
   add() {
-    this.countService.addToCount(AMMOUNT_TO_ADD);
+    this.countService.addToCount(this.constructor.name, AMMOUNT_TO_ADD);
   }
 
 }

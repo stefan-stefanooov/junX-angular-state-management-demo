@@ -10,6 +10,8 @@ import { SlaveTreeComponent } from './slave-tree/slave-tree.component';
 import { SlaveFourComponent } from './slave-four/slave-four.component';
 import { SlaveFiveComponent } from './slave-five/slave-five.component';
 import { CountService } from './count.service';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { CountService } from './count.service';
     CommonModule,
     MatGridListModule,
     MatCardModule,
+    MatListModule,
+    MatTableModule
   ],
   providers: [
     CountService

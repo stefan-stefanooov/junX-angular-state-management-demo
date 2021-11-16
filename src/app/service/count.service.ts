@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Transaction, TransactionType } from './interfaces';
 
 const DEFAULT_AMOUNT_TO_SUBTRACT = 1;
 const DEFAULT_AMOUNT_TO_ADD = 1;
@@ -13,23 +14,41 @@ export class CountService {
   public count$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public disableReset$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   public defaultState: number = COUNT_DEFAULT_VALUE;
+  public transactions$: BehaviorSubject<Transaction[]> = new BehaviorSubject<Transaction[]>([]);
 
-  addToCount(amount = DEFAULT_AMOUNT_TO_ADD) {
+  addToCount(issuer: string, amount = DEFAULT_AMOUNT_TO_ADD) {
     this.count += amount
     this.count$.next(this.count)
     this.checkReset()
+    this.addTransaction({
+      timestamp: this.getTimestamp(),
+      amount,
+      issuer,
+      type: TransactionType.ADD
+    })
   }
 
-  subtractFromCount(amount = DEFAULT_AMOUNT_TO_SUBTRACT) {
+  subtractFromCount(issuer: string, amount = DEFAULT_AMOUNT_TO_SUBTRACT) {
     this.count -= amount
     this.count$.next(this.count)
     this.checkReset()
+    this.addTransaction({
+      timestamp: this.getTimestamp(),
+      amount,
+      issuer,
+      type: TransactionType.REMOVE
+    })
   }
 
-  countReset() {
+  countReset(issuer: string) {
     this.count = COUNT_DEFAULT_VALUE
     this.count$.next(this.count)
     this.disableReset$.next(true);
+    this.addTransaction({
+      timestamp: this.getTimestamp(),
+      issuer,
+      type: TransactionType.RESET
+    })
   }
 
   private checkReset() {
@@ -39,6 +58,17 @@ export class CountService {
     } else {
       this.disableReset$.next(false);
     }
+  }
+
+  private addTransaction(newTransaction: Transaction) {
+    this.transactions$.next([
+      newTransaction,
+      ...this.transactions$.value,
+    ])
+  }
+
+  private getTimestamp(): number {
+    return new Date().getTime();
   }
 
   fireDisableReset(value: boolean) {
