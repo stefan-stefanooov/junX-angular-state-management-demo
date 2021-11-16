@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demo.component.sass']
 })
 export class DemoComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
+  addToCount() {
+  }
+
+  enableReset() {
+  }
 }

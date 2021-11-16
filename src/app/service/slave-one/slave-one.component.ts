@@ -12,6 +12,7 @@ const AMMOUNT_TO_ADD = 1
 })
 export class SlaveOneComponent {
   public disableReset$: Observable<boolean>
+  
   public get count() {
     return this.countService.count;
   }

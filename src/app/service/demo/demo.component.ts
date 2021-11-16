@@ -13,7 +13,8 @@ const AMOUNT_TO_ADD = 1;
 })
 export class DemoComponent implements OnInit {
   public transactions: Transaction[] = [];
-  displayedColumns: string[] = ['issuer', 'amount', 'type'];
+  public displayedColumns: string[] = ['issuer', 'amount', 'type'];
+
   public get count() {
     return this.countService.count;
   }
@@ -22,11 +23,10 @@ export class DemoComponent implements OnInit {
     return this.countService.count$;
   }
 
-  constructor(private countService: CountService) {
-  }
+  constructor(private countService: CountService) {}
 
   ngOnInit(): void {
-    this.countService.transactions$.subscribe(_ => this.transactions = _)
+    this.countService.transactions$.subscribe(t => this.transactions = t)
   }
 
   addToCount() {
