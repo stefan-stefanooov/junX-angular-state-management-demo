@@ -1,0 +1,11 @@
+
+<p>
+    <span matBadge="{{selectedCountGQL}}" matBadgePosition="after" matBadgeOverlap="true">Selected Rates</span>
+</p>
+<p>
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let currency of selectedRatesCurrency">
+            {{currency}}
+        </mat-list-item>
+    </mat-list>
+</p>

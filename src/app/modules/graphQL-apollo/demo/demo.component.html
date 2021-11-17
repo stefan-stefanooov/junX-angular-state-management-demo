@@ -1,1 +1,24 @@
-<p>demo GraphQL-Apollo works!</p>
+<div class="container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" >
+    <mat-text-column name="currency" justify="end"></mat-text-column>
+    <mat-text-column name="rate" justify="end"></mat-text-column>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell spinner-cell" colspan="2">
+        <mat-spinner class="spinner" [diameter]="40"></mat-spinner>
+      </td>
+    </tr>
+    <tr
+      mat-row
+      (click)="rowSelected(row)"
+      [class.demo-row-is-clicked]="selectedRows.has(row)"
+      *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+  <div class="app-selected-rates">
+    <app-selected-rates></app-selected-rates>
+    <button mat-stroked-button color="primary" (click)="writeToCache()">Write to Cache</button>
+  </div>
+  
+</div>
