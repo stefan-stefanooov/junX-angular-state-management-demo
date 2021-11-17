@@ -5,11 +5,11 @@ import { DefaultRoutingModule } from './default-routing.module';
 
 @NgModule({
   declarations: [
-    DefaultComponent
+    DefaultComponent,
   ],
   imports: [
     DefaultRoutingModule,
     CommonModule
   ]
 })
-export class GraphQLApolloModule { }
+export class DefaultModule { }

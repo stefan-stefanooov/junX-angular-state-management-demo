@@ -9,11 +9,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { TaskComponent } from './task/task.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     DemoComponent,
-    SlaveOneComponent
+    SlaveOneComponent,
+    TaskComponent
   ],
   imports: [
     StoreModule.forFeature(ngrxFeatureKey, ngrxFeatureReducer),
@@ -22,7 +25,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatCardModule,
     MatListModule,
     MatTableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ]
 })
 export class NgRxModule { }
