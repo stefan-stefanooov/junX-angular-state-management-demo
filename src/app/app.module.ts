@@ -15,6 +15,10 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LinksComponent } from './components/links/links.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { TaskComponent } from './components/task/task.component';
+import { MatIconModule } from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     ToolbarComponent,
     LinksComponent,
     NavComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,9 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatButtonModule,
+    MatBottomSheetModule,
+    MatIconModule,
+    MatListModule,
     StoreModule.forRoot(reducers, {
       metaReducers
     }),

@@ -30,7 +30,7 @@ export class DemoComponent implements OnInit {
   }
 
   addToCount() {
-    this.countService.addToCount(DemoComponent.toString(), AMOUNT_TO_ADD)
+    this.countService.addToCount(this.constructor.name, AMOUNT_TO_ADD)
   }
 
   enableReset() {

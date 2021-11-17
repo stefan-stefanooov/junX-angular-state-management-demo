@@ -5,15 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.sass']
 })
-export class DemoComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {
-  }
-
+export class DemoComponent {
   addToCount() {
+    throw Error("Not Implemented")
   }
 
   enableReset() {
+    throw Error("Not Implemented")
   }
 }
