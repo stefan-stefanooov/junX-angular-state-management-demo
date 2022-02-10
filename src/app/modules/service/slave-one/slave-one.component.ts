@@ -20,7 +20,7 @@ export class SlaveOneComponent {
   constructor(private countService: CountService) {
     this.disableReset$ = this.countService.disableReset$.pipe(
       distinctUntilChanged(),
-      tap(_ => console.log("disableReset$ fired", _))
+      tap(_ => console.log("disableReset$ fired /SlaveOneComponent/", _))
     )
   }
 

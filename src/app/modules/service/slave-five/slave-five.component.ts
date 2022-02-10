@@ -14,7 +14,7 @@ export class SlaveFiveComponent {
   }
 
   public get disableReset() {
-    console.log("disableReset called")
+    console.log("disableReset called /SlaveFiveComponent/")
     return this.countService.defaultState === this.count;
   }
 

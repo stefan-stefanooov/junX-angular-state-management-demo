@@ -1,6 +1,5 @@
-import { Component, ContentChild, OnInit } from '@angular/core';
-import { MatNoDataRow } from '@angular/material/table';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { CountService } from '../count.service';
 import { Transaction } from '../interfaces';
 
@@ -14,16 +13,15 @@ const AMOUNT_TO_ADD = 1;
 export class DemoComponent implements OnInit {
   public transactions: Transaction[] = [];
   public displayedColumns: string[] = ['issuer', 'amount', 'type'];
+  public count$: BehaviorSubject<number>;
 
   public get count() {
     return this.countService.count;
   }
 
-  public get count$() {
-    return this.countService.count$;
+  constructor(private countService: CountService) {
+    this.count$ = this.countService.count$;
   }
-
-  constructor(private countService: CountService) {}
 
   ngOnInit(): void {
     this.countService.transactions$.subscribe(t => this.transactions = t)
