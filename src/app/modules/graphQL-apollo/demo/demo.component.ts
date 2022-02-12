@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ApolloCache } from '@apollo/client/core';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { AllRatesGQL, Rate, SelectedRatesCurrencyGQL } from '../queries';
 import { selectedRatesRV } from '../reactive-vars';
@@ -27,10 +26,11 @@ export class DemoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.allRatesGQL.watch().valueChanges.pipe(
-      map(r => r.data),
-    ).subscribe((result: any) => {
-      const rates: Array<any> = result.rates
+    this.allRatesGQL.watch({
+      currency: "USD"
+    }).valueChanges.pipe(
+      map(r => r.data.rates),
+    ).subscribe((rates: any) => {
       this.dataSource = new MatTableDataSource<any>(rates.slice(0, 10));
     });
   }

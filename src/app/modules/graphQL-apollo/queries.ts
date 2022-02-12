@@ -10,6 +10,10 @@ export interface RatesResponse {
     rates: Rate[];
 }
 
+export interface RatesParameters {
+  currency: string;
+}
+
 export interface SelectedRatesResponse {
   selectedRates: Rate[];
 }
@@ -19,10 +23,10 @@ export interface SelectedRatesCurrencyResponse {
 }
 
 @Injectable()
-  export class AllRatesGQL extends Query<RatesResponse> {
+  export class AllRatesGQL extends Query<RatesResponse, RatesParameters> {
     document = gql`
-        query rates {
-          rates(currency: "USD") {
+        query rates($currency: String!) {
+          rates(currency: $currency) {
             currency
             rate
           }
