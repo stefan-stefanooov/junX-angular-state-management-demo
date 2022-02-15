@@ -31,7 +31,7 @@ import { selectedRatesRV } from './modules/graphQL-apollo/reactive-vars';
     ToolbarComponent,
     LinksComponent,
     NavComponent,
-    TaskComponent
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +47,7 @@ import { selectedRatesRV } from './modules/graphQL-apollo/reactive-vars';
       metaReducers
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forRoot([AppEffects, ]),
   ],
   providers: [
     {

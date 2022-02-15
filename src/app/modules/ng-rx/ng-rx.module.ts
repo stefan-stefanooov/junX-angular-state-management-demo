@@ -10,11 +10,19 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
+import { SlaveTwoComponent } from './slave-two/slave-two.component';
+import { SlaveThreeComponent } from './slave-three/slave-three.component';
+import { SlaveFourComponent } from './slave-four/slave-four.component';
+import { SlaveFiveComponent } from './slave-five/slave-five.component';
 
 @NgModule({
   declarations: [
     DemoComponent,
     SlaveOneComponent,
+    SlaveTwoComponent,
+    SlaveThreeComponent,
+    SlaveFourComponent,
+    SlaveFiveComponent,
   ],
   imports: [
     StoreModule.forFeature(ngrxFeatureKey, ngrxFeatureReducer),

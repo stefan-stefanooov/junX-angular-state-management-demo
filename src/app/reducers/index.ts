@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import {
   ActionReducerMap,
   createReducer,
@@ -12,11 +13,13 @@ export interface State {
 }
 
 export interface NgRxState {
-  count: number
+  count: number;
+  resetCount: number;
 }
 
 export const initialNgRxState: NgRxState = {
-  count: 0
+  resetCount: 0,
+  count: 0,
 };
 
 export const reducers: ActionReducerMap<State> = {
@@ -24,7 +27,8 @@ export const reducers: ActionReducerMap<State> = {
     initialNgRxState,
     on(addAction, (state, { amount }) => ({ ...state, count: state.count + amount })),
     on(subtractAction, (state, { amount }) => ({ ...state, count: state.count - amount })),
-    on(resetAction, _ => ({ ...initialNgRxState })),
+    on(resetAction, (state) => ({ ...state })),
+    on(resetAction, (state) => ({...state, resetCount: state.resetCount++}))
   ),
 };
 

@@ -1,23 +1,16 @@
 <mat-card class="container">
-    <div class="components-container">
-        <mat-card-title>
-            <h3>NgRx Service!</h3>
-            <p>
-                State in Parent: <strong>????</strong>
-            </p>
-        </mat-card-title>
-        <mat-card-subtitle>
-            <app-slave-one></app-slave-one>
-        </mat-card-subtitle>
-        <mat-card-actions class="card-container">
-            <button
-                class="card"
-                (click)="addToCount()"
-            >Count ++</button>
-            <button
-            class="card"
-            (click)="enableReset()"
-            >Enable Reset</button>
-        </mat-card-actions>
-    </div>
-    </mat-card>
+  <div class="components-container">
+    <mat-card-title>
+      <h3>NgRx Service!</h3>
+      <p>State in Parent: <strong>????</strong></p>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <app-slave-one></app-slave-one>
+      <app-slave-two></app-slave-two>
+    </mat-card-subtitle>
+    <mat-card-actions class="card-container">
+      <button class="card" (click)="addToCount()">Count ++</button>
+      <button class="card" (click)="enableReset()">Enable Reset</button>
+    </mat-card-actions>
+  </div>
+</mat-card>
