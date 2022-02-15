@@ -5,7 +5,7 @@ export const ngrxFeatureKey = 'ngrx';
 
 export interface NgRxFeatureState {
   count: number;
-    resetCount: number;
+  resetCount: number;
 }
 
 export const initialState: NgRxFeatureState = {
@@ -23,7 +23,6 @@ export const ngrxFeatureReducer = createReducer(
     ...state,
     count: state.count - amount,
   })),
-  on(resetAction, (_) => ({ ...initialState })),
-  on(resetAction, (state) => ({ ...state })),
-  on(countReset, (state) => ({ ...state, resetCount: state.resetCount++ }))
+  on(resetAction, (state) => ({ ...state, count: 0 })),
+  on(countReset, (state) => ({ ...state, resetCount: state.resetCount + 1 }))
 );

@@ -3,7 +3,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { addAction, countReset, resetAction } from '../actions';
+import { addAction } from '../actions';
+import { countReset, resetAction } from '../modules/ng-rx/actions';
 
  
 @Injectable()
